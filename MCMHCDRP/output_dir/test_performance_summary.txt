@@ -1,0 +1,8 @@
+FINAL BEST MODEL TEST performance
+==============================
+Mean Squared Error (MSE):          0.86419446
+Root Mean Squared Error (RMSE):     0.92962060
+Mean Absolute Error (MAE):          0.67690261
+Coefficient of Determination (R2):  0.88041323
+Pearson Correlation (PCC):          0.93833917
+Spearman Correlation (SCC):         0.91773397
