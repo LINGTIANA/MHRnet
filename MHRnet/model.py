@@ -107,7 +107,7 @@ class MLP(nn.Module):
 
 
 # -------------------------- 主模型 --------------------------
-class MCMHCDRP(nn.Module):
+class MHRnet(nn.Module):
     def __init__(self, cell_exp_dim, cell_mut_dim, cell_meth_dim, cell_path_dim, global_drug_emb, cfg):
         super().__init__()
         self.cfg = cfg

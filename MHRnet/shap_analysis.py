@@ -18,7 +18,7 @@ import inspect
 from config import get_cfg_defaults
 from data_load import dataload
 from data_process import data_process
-from model import MCMHCDRP
+from model import MHRnet
 
 # ===================== 配置与路径 =====================
 BEST_MODEL_PATH = r"./output_dir/best_model.pt"
@@ -125,7 +125,7 @@ def main():
      _, _, _, aligned_drug_graphs, valid_drug_ids_A, l_mean, l_std) = processed
 
     # 2. 模型初始化
-    model = MCMHCDRP(data[1].shape[1], data[0].shape[1], data[2].shape[1], data[3].shape[1],
+    model = MHRnet(data[1].shape[1], data[0].shape[1], data[2].shape[1], data[3].shape[1],
                      torch.zeros((len(valid_drug_ids_A), cfg.drug.drug_out_dim), device=device), cfg).to(device)
     model.load_state_dict(torch.load(BEST_MODEL_PATH, map_location=device))
     model.eval()

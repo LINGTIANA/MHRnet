@@ -15,7 +15,7 @@ os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
 from config import get_cfg_defaults
 from data_load import dataload
 from data_process import data_process
-from model import MCMHCDRP
+from model import MHRnet
 from utils import set_seed, eval_predict, info_nce_loss, augment_hyper_adj_vec
 
 
@@ -150,7 +150,7 @@ def main():
     cfg.label_mean, cfg.label_std = l_mean, l_std
 
     # 3. 初始化网络
-    model = MCMHCDRP(data[1].shape[1], data[0].shape[1], data[2].shape[1], data[3].shape[1],
+    model = MHRnet(data[1].shape[1], data[0].shape[1], data[2].shape[1], data[3].shape[1],
                      torch.zeros((len(valid_drug_ids_A), cfg.drug.drug_out_dim), device=device), cfg).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=cfg.model.lr, weight_decay=1e-4)
     scheduler = ReduceLROnPlateau(optimizer, mode="min", factor=0.5, patience=8)
